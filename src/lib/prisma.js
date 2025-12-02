@@ -1,14 +1,15 @@
 import { PrismaClient } from "@prisma/client";
+import { withPg } from "@prisma/adapter-pg"; // لازم تثبت الباكدج دي
 
 const globalForPrisma = globalThis;
+
+const adapter = withPg(process.env.DATABASE_URL);
 
 export const prisma =
   globalForPrisma.prisma ||
   new PrismaClient({
+    adapter,
     log: ["query", "info", "warn", "error"],
-    // لو هتستخدم Accelerate أو Adapter ممكن تضيف هنا:
-    // accelerateUrl: process.env.ACCELERATE_URL,
-    // أو adapter: withAccelerate(...)
   });
 
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
