@@ -1,9 +1,10 @@
 import { PrismaClient } from "@prisma/client";
-import { withPg } from "@prisma/adapter-pg"; // لازم تثبت الباكدج دي
+import { PrismaPg } from "@prisma/adapter-pg";
 
 const globalForPrisma = globalThis;
 
-const adapter = withPg(process.env.DATABASE_URL);
+// أنشئ الـ adapter باستخدام الـ DATABASE_URL
+const adapter = new PrismaPg(process.env.DATABASE_URL);
 
 export const prisma =
   globalForPrisma.prisma ||
