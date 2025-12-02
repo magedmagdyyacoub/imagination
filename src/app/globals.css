@@ -1,42 +1,214 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
+html, body {
+  height: 100%;
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.center-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.dark .form-light {
+  background-color: #1f1f1f !important;
+  color: #fff !important;
+}
+
+.dark .form-light input {
+  background-color: #2a2a2a !important;
+  color: #fff !important;
+  border-color: #444 !important;
+}
+
+.dark .form-light input::placeholder {
+  color: #bbb !important;
+}
+.form-light {
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+.service-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* دائرة للأيقونات */
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-bs-theme="dark"] .icon-circle {
+  background: rgba(255, 255, 255, 0.1);
+}
+.about-img {
+  max-width: 330px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+  transform: scale(1.03);
+}
+
+/* For Dark Mode image border */
+[data-bs-theme="dark"] .about-img {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* الصورة الكبيرة */
+.big-img {
+  flex: 2 1 60%;
+}
+
+/* الصور الصغيرة */
+.small-img {
+  flex: 1 1 28%;
+}
+
+/* Hover effect لجميع الصور */
+.gallery-grid img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Dark Mode */
+[data-bs-theme="dark"] .gallery-grid img {
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.hero-section {
+  height: 90vh;
+  background: url('/images/hero.webp') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5); /* شفافية لتبرز النص */
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.hero-subtitle {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.hero-btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+.center-area {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-light {
+  background-color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .form-light {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+textarea.form-control {
+  resize: none;
+}.center-area {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-light {
+  background-color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .form-light {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.gallery img {
+  cursor: pointer;
+}
+.oauth-circle-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--bs-border-color);
+  background: var(--bs-body-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.oauth-circle-btn:hover {
+  background: var(--bs-secondary-bg);
+  transform: scale(1.05);
+}
+
+.oauth-circle-btn img {
+  pointer-events: none;
+}
+
+
+/* Dark Mode: Already looks good since overlay is dark */
