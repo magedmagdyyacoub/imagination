@@ -7,3 +7,7 @@ NextAuth 5
 Prisma 5
 
 كلهم بيشتغلوا مع بعض بدون أي Errors.
+
+
+subabase password
+guYKnQyRRcYg3XGM
