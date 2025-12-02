@@ -4,15 +4,15 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  // احذف السطر url = env("DATABASE_URL")
 }
 
 model User {
   id             String   @id @default(cuid())
-  name           String?              // <-- add this
+  name           String?
   email          String   @unique
-  emailVerified  DateTime?            // <-- add this
-  image          String?              // <-- add this
+  emailVerified  DateTime?
+  image          String?
   password       String?
   role           String   @default("USER")
   createdAt      DateTime @default(now())
@@ -23,7 +23,6 @@ model User {
   accounts       Account[]
   sessions       Session[]
 }
-
 
 model Avatar {
   id        String   @id @default(cuid())
